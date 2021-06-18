@@ -1,9 +1,9 @@
-import {Router} from 'express';
-import { check } from 'express-validator';
-import { actualizarEvento, crearEvento, eliminarEvento, getEventos } from '../controllers/events';
-import { isDate } from '../helpers/isDate';
-import { validarCampos } from '../middlewares/validar-campos';
-import { validarJWT } from '../middlewares/validar-jwt';
+const { Router } = require('express');
+const { check } = require('express-validator');
+const {  actualizarEvento, crearEvento, eliminarEvento, getEventos } = require('../controllers/events');
+const {  isDate } = require('../helpers/isDate');
+const {  validarCampos } = require('../middlewares/validar-campos');
+const {  validarJWT } = require('../middlewares/validar-jwt');
 const router = Router();
 
 //Todas tienen qeu pasar por la validación del token

@@ -1,7 +1,7 @@
-import {response} from 'express';
-import Evento from '../models/Evento';
+const { response } = require('express');
+const Evento = require('../models/Evento');
 
-export const getEventos = async(req, res = response) => {
+const getEventos = async(req, res = response) => {
 
     const eventos = await Evento.find()
                                 .populate('user', 'name');
@@ -12,7 +12,7 @@ export const getEventos = async(req, res = response) => {
     });
 }
 
-export const crearEvento = async(req, res = response) => {
+const crearEvento = async(req, res = response) => {
     
     //Verificar que tenga el evento
     //console.log(req.body)
@@ -42,7 +42,7 @@ export const crearEvento = async(req, res = response) => {
 
 }
 
-export const actualizarEvento = async(req, res = response) => {
+const actualizarEvento = async(req, res = response) => {
 
     const eventoId= req.params.id;
     const uid = req.uid;
@@ -87,7 +87,7 @@ export const actualizarEvento = async(req, res = response) => {
 }
 
 
-export const eliminarEvento = async(req, res = response) => {
+const eliminarEvento = async(req, res = response) => {
 
     const eventoId= req.params.id;
     const uid = req.uid;
@@ -125,6 +125,11 @@ export const eliminarEvento = async(req, res = response) => {
     }
 }
 
-
+module.exports = {
+    getEventos,
+    crearEvento,
+    actualizarEvento,
+    eliminarEvento
+}
 
 

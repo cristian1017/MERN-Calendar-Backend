@@ -1,6 +1,6 @@
-import express from 'express';
-import { dbConnection } from './databases/config';
-import cors from 'cors';
+const express = require('express');
+const cors = require('cors');
+const { dbConnection } = require('./databases/config');
 require('dotenv').config();
 
 

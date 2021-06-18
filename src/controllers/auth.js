@@ -1,9 +1,9 @@
-import {response} from 'express';
-import bcrypt from 'bcryptjs';
-import Usuario from '../models/Usuario';
-import { generarJWT } from '../helpers/jwt';
+const { response } = require('express');
+const bcrypt = require('bcryptjs');
+const Usuario = require('../models/Usuario');
+const { generarJWT } = require('../helpers/jwt');
 
-export const crearUsuario = async (req, res = response) => {
+const crearUsuario = async (req, res = response) => {
 
    const { email, password} = req.body;
     try {
@@ -46,7 +46,7 @@ export const crearUsuario = async (req, res = response) => {
     
 }
 
-export const loginUsuario = async(req, res = response) => {
+const loginUsuario = async(req, res = response) => {
 
     const { email, password } = req.body
 
@@ -90,7 +90,7 @@ export const loginUsuario = async(req, res = response) => {
 
 }
 
-export const renovarToken = async(req, res = response) => {
+const renovarToken = async(req, res = response) => {
 
     const { uid, name } = req;
 
@@ -103,10 +103,8 @@ export const renovarToken = async(req, res = response) => {
     })
 }
 
-//Sin @babel, tocaria exportar de la sig forma: 
-/*
 module.exports = {
     crearUsuario,
-    ...
+    loginUsuario,
+    renovarToken
 }
-*/

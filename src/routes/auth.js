@@ -2,14 +2,15 @@
     Rutas de Usuarios / Auth
     host + /api/auth
 */
-import { Router } from 'express';
+const { Router } = require('express');
 // El {check} es un middleware que se va a encargar de validar un campo en particular, lo hace 1 a la vez.
-import { check } from 'express-validator';
+const { check } = require('express-validator');
 const router = Router();
 
-import { crearUsuario, loginUsuario, renovarToken } from '../controllers/auth';
-import { validarCampos } from '../middlewares/validar-campos';
-import { validarJWT } from '../middlewares/validar-jwt';
+const { crearUsuario, loginUsuario, renovarToken } = require('../controllers/auth');
+const { validarCampos } = require('../middlewares/validar-campos');
+const { validarJWT } = require('../middlewares/validar-jwt');
+
 
 // los [...] son una colección de middleware 
 router.post(
